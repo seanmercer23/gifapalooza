@@ -7,6 +7,7 @@ import Search from './Search'
 import Random from './Random'
 
 const apiKey = process.env.REACT_APP_API_KEY
+const randomWords = require('random-words')
 
 class App extends Component {
   constructor (props) {
@@ -47,7 +48,7 @@ class App extends Component {
 
 
   getRandomAPI(){
-    fetch(`https://api.tenor.com/v1/random?q="n"&key=${apiKey}&limit=1`)
+    fetch(`https://api.tenor.com/v1/random?q=${randomWords()}&key=${apiKey}&limit=1`)
     .then(response => response.json())
     .then(json => this.setState({
       randomGif: json.results[0].media[0].gif.url})
