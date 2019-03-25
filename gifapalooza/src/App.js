@@ -38,7 +38,7 @@ class App extends Component {
 
   renderGifs () {
     if(Array.isArray(this.state.gifs) === true) {
-      return this.state.gifs.map(gif => <a href={gif.itemurl} key={gif.id}><img src={gif.url} alt={`${this.state.value} gif`}/></a>)
+      return this.state.gifs.map(gifItem => <a href={gifItem.itemurl} key={gifItem.id}><img src={gifItem.media[0].gif.url} alt={`${this.state.value} gif`}/></a>)
     }
   }
 
