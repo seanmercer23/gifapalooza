@@ -13,12 +13,15 @@ class App extends Component {
     super(props)
     this.state = {
       value: "",
-      gifs: ""
+      gifs: "",
+      randomGif: ""
     }
     this.handleSubmit=this.handleSubmit.bind(this)
     this.handleChange=this.handleChange.bind(this)
     this.getAPI=this.getAPI.bind(this)
     this.renderGifs=this.renderGifs.bind(this)
+    this.getRandomAPI=this.getRandomAPI.bind(this)
+    this.renderRandomGif=this.renderRandomGif.bind(this)
   }
 
   getAPI(){
@@ -39,6 +42,24 @@ class App extends Component {
   renderGifs () {
     if(Array.isArray(this.state.gifs) === true) {
       return this.state.gifs.map(gifItem => <a href={gifItem.itemurl} key={gifItem.id}><img src={gifItem.media[0].gif.url} alt={`${this.state.value} gif`}/></a>)
+    }
+  }
+
+
+  getRandomAPI(){
+    fetch(`https://api.tenor.com/v1/random?q="n"&key=${apiKey}&limit=1`)
+    .then(response => response.json())
+    .then(json => this.setState({
+      randomGif: json.results[0].media[0].gif.url})
+      )
+  }
+
+  componentDidMount() {
+    this.getRandomAPI()
+  }
+  renderRandomGif(){
+    if(this.state.randomGif !== "") {
+      return <img src={this.state.randomGif} alt="random gif" />
     }
   }
 
@@ -74,6 +95,7 @@ class App extends Component {
             render={(props) =>
               <Random 
                 {...props}
+                renderRandomGif={this.renderRandomGif}
                 />
               }
             />

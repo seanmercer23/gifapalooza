@@ -2,7 +2,9 @@ import React from 'react'
 
 function Random (props) {
     return (
-        <div></div>
+        <div>
+            {props.renderRandomGif()}
+        </div>
     )
 }
 
