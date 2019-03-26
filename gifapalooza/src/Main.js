@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom'
 function Main (props) {
     return (
         <div>
-            This is the main page
             <nav>
                 <ul>
                     <li><Link to="/search">Gif Search</Link></li>

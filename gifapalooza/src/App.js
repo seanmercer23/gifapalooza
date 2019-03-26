@@ -26,7 +26,7 @@ class App extends Component {
   }
 
   getAPI(){
-    fetch(`https://api.tenor.com/v1/search?q=${this.state.value}&key=${apiKey}&limit=10`)
+    fetch(`https://api.tenor.com/v1/search?q=${this.state.value}&key=${apiKey}&limit=9&ar_range=wide`)
     .then(response => response.json())
     .then(json => this.setState({gifs: json.results}))
   }
@@ -42,7 +42,14 @@ class App extends Component {
 
   renderGifs () {
     if(Array.isArray(this.state.gifs) === true) {
-      return this.state.gifs.map(gifItem => <a href={gifItem.itemurl} key={gifItem.id}><img src={gifItem.media[0].gif.url} alt={`${this.state.value} gif`}/></a>)
+      return (this.state.gifs.map(gifItem => 
+      <a href={gifItem.itemurl} 
+      key={gifItem.id}>
+      <img src={gifItem.media[0].gif.url} 
+      alt={`${this.state.value} gif`}
+      className = "search-result"
+      />
+      </a>))
     }
   }
 
