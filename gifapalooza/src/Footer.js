@@ -5,8 +5,8 @@ function Footer (props) {
         <div className="footer">
             <footer>
                 <ul>
-                    <li className="bottom-right"><a href="https://github.com/seanmercer23/gifapalooza">Github Repo</a></li>
-                    <li className="bottom-left">App Powered by Tenor Gif API</li>
+                    <li className="bottom-right"><a className="github" href="https://github.com/seanmercer23/gifapalooza">Github Repo</a></li>
+                    <li className="bottom-left"><a className="tenor" href="https://tenor.com/gifapi">App Powered by Tenor Gif API</a></li>
                 </ul>
             </footer>
         </div>

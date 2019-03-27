@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Concert+One');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+
 .App {
   height: 1000px;
-  width: 1000px;
+  width: 100%;
   text-align: center;
   display: grid;
-  grid-template-rows: 0.5fr 4fr 0.5fr;
+  grid-template-rows: 0.5fr 4fr 0.25fr;
   grid-template-columns: repeat(5, 1fr);
   margin: 0 auto;
 }
@@ -14,21 +17,60 @@ li {
   padding: 0 5px;
 }
 
+a{
+  text-decoration: none;
+}
 .header {
-  grid-column: 3;
+  grid-column: 1 / span 5;
   grid-row: 1;
-  margin: 0 auto;
+  margin: 0, 20%;
+  text-align: center;
+  width: 107%;
+  padding-top: 1%; 
+  background: #50C9C3; 
+  background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+  background: linear-gradient(to right, #96DEDA, #50C9C3); 
+
 }
 
 .footer {
-  margin-top: 40px;
   grid-row: 3;
-  grid-column: 1 /span 5;
+  grid-column: 1 / span 5;
   font-size: 10px;
+  padding-top: 10px;
+  width: 107%;
+  padding-bottom: 1%;
+  background: #50C9C3; 
+  background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+  background: linear-gradient(to right, #96DEDA, #50C9C3);
+  color: #f857a6;
+  font-family: 'Concert One', cursive;
+  text-decoration: none;
+  text-align: center;
 }
 
-.search {
+.github, .tenor {
+  color: #f857a6;
+}
+
+.github:hover {
+  text-decoration: underline;
+}
+
+.tenor:hover{
+  text-decoration: underline;
+}
+
+.search-with-gifs {
   margin: 0 auto;
+  height: 1235px;
+  width: 1235px;
+}
+
+.search-no-gifs {
+  margin: 0 auto;
+  height: 50px;
+  width: 1200px;
 }
 
 .gifs {
@@ -36,9 +78,7 @@ li {
   grid-row: 2;
   align-items: center;
   margin: 0 auto;
-  height: 1200px;
-  width: 1200px;
-  padding-right: 50px;
+  padding-left: 2.8%;
 }
 
 .search-result {
@@ -49,6 +89,8 @@ li {
 
 .random-result {
   margin: 0 auto;
+  height: 400px;
+  width: 400px;
 }
 
 .hide-random-result {
@@ -57,7 +99,10 @@ li {
 
 .random {
   margin: 0 auto;
-  grid-column: 3;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 0.5fr 4fr 0.5fr;
+  grid-template-columns: repeat(5, 1fr)
 }
 
 .gif-search {
@@ -66,19 +111,23 @@ li {
   margin: 0 auto;
   grid-column: 3;
   align-items: center;
+  padding-bottom: 3%;
 }
 
 .search-form {
   margin: 0 auto;
   align-self: center;
   grid-column: 3;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 300px;
 }
 
 #gif-wheel {
   width: 400px;
   height: 400px;
   margin: 0 auto;
-  grid-column: 3;
+  grid-column: 1;
   grid-row: 2;
   background: #03001e;
   background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
@@ -88,8 +137,91 @@ li {
 
 .spin {
   position: relative;
-  animation: spin 8s ease-out;
+  animation: spin 7s ease-out;
   transform-origin: center center;
+}
+
+.random-gif {
+  grid-row: 2;
+  grid-column: 5;
+  height: 60%;
+  width: 60%;
+  padding-top: 20px;
+  margin-left: 40px;
+}
+
+.wheel-instructions {
+  color: white;
+  margin: 0 auto;
+  padding-top: 200px;
+  text-align: center;
+}
+
+.header-nav {
+  padding-bottom: 10px;
+}
+
+.nav-link {
+  color: #f857a6;
+  font-family: 'Concert One', cursive;
+  font-size: 2em;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.show-directions {
+  font-size: 2em;
+  font-family: 'Abril Fatface', cursive;
+  color: #93F9B9;
+  height: 430px;
+  width: 100%;
+  padding-top: 2.5%;
+  padding-bottom: 3.5%;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.search-bar {
+  border-radius: 25%;
+  height: 60px;
+  width: 150px;
+  font-size: 10px;
+  margin-bottom: 10%;
+  background: #642B73; 
+  background: -webkit-linear-gradient(to right, #C6426E, #642B73); 
+  background: linear-gradient(to right, #C6426E, #642B73); 
+  border: #642B73;
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 1.5em;
+  color: #FFAF7B;
+  margin-right: 5%;
+}
+
+.submit {
+  border-radius: 100%;
+  height: 75px;
+  width: 75px;
+  font-size: 1em;
+  background: #F00000; 
+  background: -webkit-linear-gradient(to right, #DC281E, #F00000);
+  background: linear-gradient(to right, #DC281E, #F00000); 
+  color: white;
+  font-family: 'Abril Fatface', cursive;
+  margin-bottom: 18%;
+}
+
+.point-gif {
+  margin-bottom: -2%;
+}
+
+.search-direction {
+  margin-bottom: -10px;
 }
 
 @keyframes spin {

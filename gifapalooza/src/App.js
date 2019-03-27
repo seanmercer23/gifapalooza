@@ -19,7 +19,8 @@ class App extends Component {
       gifs: "",
       randomGif: "",
       condition: false,
-      randomDisplay: false
+      randomDisplay: false,
+      searchDisplay: true
     }
     this.handleSubmit=this.handleSubmit.bind(this)
     this.handleChange=this.handleChange.bind(this)
@@ -45,6 +46,7 @@ class App extends Component {
   handleSubmit (e) {
     e.preventDefault()
     this.getAPI()
+    this.setState({searchDisplay: false})
   }
 
   renderGifs () {
@@ -89,12 +91,12 @@ class App extends Component {
     const spinSound = document.querySelector('.spin-sound')
     spinSound.play()
     setTimeout(this.setState({condition: !this.state.condition}), 3000)
-    setTimeout(function(){this.setState({randomDisplay: true})}.bind(this), 8200)
+    setTimeout(function(){this.setState({randomDisplay: true})}.bind(this), 7200)
   }
 
   spinEnd () {
     counter++
-    setTimeout(function(){this.setState({condition: !this.state.condition})}.bind(this), 1000)
+    setTimeout(function(){this.setState({condition: !this.state.condition})}.bind(this), 500)
   }
 
   nextResults () {
@@ -127,6 +129,7 @@ class App extends Component {
                 getAPI = {this.getAPI}
                 renderGifs = {this.renderGifs}
                 nextResults={this.nextResults}
+                searchDisplay={this.state.searchDisplay}
                 />
               }
             />
