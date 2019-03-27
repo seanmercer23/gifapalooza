@@ -5,6 +5,7 @@ import Home from './Home'
 import Main from './Main'
 import Search from './Search'
 import Random from './Random'
+import SpinSound from './spin_sound.m4a'
 
 const apiKey = process.env.REACT_APP_API_KEY
 const randomWords = require('random-words')
@@ -28,12 +29,13 @@ class App extends Component {
     this.renderRandomGif=this.renderRandomGif.bind(this)
     this.handleRandomClick=this.handleRandomClick.bind(this)
     this.spinEnd=this.spinEnd.bind(this)
+    this.nextResults=this.nextResults.bind(this)
   }
 
   getAPI(){
     fetch(`https://api.tenor.com/v1/search?q=${this.state.value}&key=${apiKey}&limit=9&ar_range=wide`)
     .then(response => response.json())
-    .then(json => this.setState({gifs: json.results}))
+    .then(json => this.setState({gifs: json.results, next: json.next}))
   }
 
   handleChange(search) {
@@ -60,7 +62,7 @@ class App extends Component {
 
   getRandomAPI(){
     let randomGifArray = []
-    fetch(`https://api.tenor.com/v1/random?q=${randomWords()}&key=${apiKey}&limit=50`)
+    fetch(`https://api.tenor.com/v1/random?q=${randomWords()}&key=${apiKey}&limit=50&ar_range=wide`)
     .then(response => response.json())
     .then(json => json.results.map(result => 
       randomGifArray.push(result.media[0].gif.url)
@@ -84,13 +86,21 @@ class App extends Component {
   }
 
   handleRandomClick () {
-    this.setState({condition: !this.state.condition})
-    setTimeout(function(){this.setState({randomDisplay: true})}.bind(this), 3200)
+    const spinSound = document.querySelector('.spin-sound')
+    spinSound.play()
+    setTimeout(this.setState({condition: !this.state.condition}), 3000)
+    setTimeout(function(){this.setState({randomDisplay: true})}.bind(this), 8200)
   }
 
   spinEnd () {
-    setTimeout(function(){counter++}, 2000)
+    counter++
     setTimeout(function(){this.setState({condition: !this.state.condition})}.bind(this), 1000)
+  }
+
+  nextResults () {
+    fetch(`https://api.tenor.com/v1/search?q=${this.state.value}&key=${apiKey}&limit=9&ar_range=wide&pos=${this.state.next}`)
+    .then(response => response.json())
+    .then(json => this.setState({gifs: json.results, next: json.next}))
   }
 
   render() {
@@ -116,6 +126,7 @@ class App extends Component {
                 handleChange = {this.handleChange}
                 getAPI = {this.getAPI}
                 renderGifs = {this.renderGifs}
+                nextResults={this.nextResults}
                 />
               }
             />
@@ -129,9 +140,14 @@ class App extends Component {
                 handleRandomClick={this.handleRandomClick}
                 condition={this.state.condition}
                 spinEnd={this.spinEnd}
+                spinSound={this.spinSound}
                 />
               }
             />
+            <audio style={{display: "none"}}
+             className="spin-sound"
+             src={SpinSound}
+             ></audio>
         </div>
       </BrowserRouter>
     );

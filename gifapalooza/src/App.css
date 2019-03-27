@@ -88,7 +88,7 @@ li {
 
 .spin {
   position: relative;
-  animation: spin 3s ease-out;
+  animation: spin 8s ease-out;
   transform-origin: center center;
 }
 
@@ -98,6 +98,6 @@ li {
       transform: rotate(0deg);
   }
   to {
-      transform: rotate(1665deg);
+      transform: rotate(3600deg);
   }
 }

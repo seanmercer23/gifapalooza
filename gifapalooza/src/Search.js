@@ -21,6 +21,7 @@ function Search (props) {
             <div className="gifs">
                 {props.renderGifs()}
             </div>
+            <button onClick={props.nextResults}>Next</button>
             <Footer />
         </div>
     )
