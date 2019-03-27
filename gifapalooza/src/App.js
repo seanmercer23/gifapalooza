@@ -8,6 +8,7 @@ import Random from './Random'
 
 const apiKey = process.env.REACT_APP_API_KEY
 const randomWords = require('random-words')
+let counter = 0
 
 class App extends Component {
   constructor (props) {
@@ -15,7 +16,9 @@ class App extends Component {
     this.state = {
       value: "",
       gifs: "",
-      randomGif: ""
+      randomGif: "",
+      condition: false,
+      randomDisplay: false
     }
     this.handleSubmit=this.handleSubmit.bind(this)
     this.handleChange=this.handleChange.bind(this)
@@ -23,6 +26,8 @@ class App extends Component {
     this.renderGifs=this.renderGifs.bind(this)
     this.getRandomAPI=this.getRandomAPI.bind(this)
     this.renderRandomGif=this.renderRandomGif.bind(this)
+    this.handleRandomClick=this.handleRandomClick.bind(this)
+    this.spinEnd=this.spinEnd.bind(this)
   }
 
   getAPI(){
@@ -53,13 +58,15 @@ class App extends Component {
     }
   }
 
-
   getRandomAPI(){
-    fetch(`https://api.tenor.com/v1/random?q=${randomWords()}&key=${apiKey}&limit=1`)
+    let randomGifArray = []
+    fetch(`https://api.tenor.com/v1/random?q=${randomWords()}&key=${apiKey}&limit=50`)
     .then(response => response.json())
-    .then(json => this.setState({
-      randomGif: json.results[0].media[0].gif.url})
+    .then(json => json.results.map(result => 
+      randomGifArray.push(result.media[0].gif.url)
       )
+    )
+    this.setState({randomGif: randomGifArray})
   }
 
   componentDidMount() {
@@ -67,8 +74,23 @@ class App extends Component {
   }
   renderRandomGif(){
     if(this.state.randomGif !== "") {
-      return <img src={this.state.randomGif} alt="random gif" />
+      return (<a href={this.state.randomGif[counter]}>
+      <img className={this.state.randomDisplay ? "random-result" : "hide-random-result"} 
+      src={this.state.randomGif[counter]}
+       alt="random gif" 
+       />
+       </a>)
     }
+  }
+
+  handleRandomClick () {
+    this.setState({condition: !this.state.condition})
+    setTimeout(function(){this.setState({randomDisplay: true})}.bind(this), 3200)
+  }
+
+  spinEnd () {
+    setTimeout(function(){counter++}, 2000)
+    setTimeout(function(){this.setState({condition: !this.state.condition})}.bind(this), 1000)
   }
 
   render() {
@@ -104,6 +126,9 @@ class App extends Component {
               <Random 
                 {...props}
                 renderRandomGif={this.renderRandomGif}
+                handleRandomClick={this.handleRandomClick}
+                condition={this.state.condition}
+                spinEnd={this.spinEnd}
                 />
               }
             />

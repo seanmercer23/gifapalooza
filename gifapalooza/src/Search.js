@@ -6,16 +6,18 @@ function Search (props) {
     return (
         <div className="search">
             <Header />
-            <form onSubmit={props.handleSubmit}>
-                <input 
-                type="text" 
-                placeholder="Search Tenor Gif" 
-                value={props.value}
-                onChange={props.handleChange}
-                >
-                </input>
-                <input type="submit" value="Search"></input>
-            </form>
+            <div className="gif-search">
+                <form onSubmit={props.handleSubmit} className="search-form">
+                    <input 
+                    type="text" 
+                    placeholder="Search Tenor Gif" 
+                    value={props.value}
+                    onChange={props.handleChange}
+                    >
+                    </input>
+                    <input type="submit" value="Search"></input>
+                </form>
+            </div>
             <div className="gifs">
                 {props.renderGifs()}
             </div>
