@@ -338,6 +338,26 @@ a{
   animation: bounce 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
 }
 
+@media (min-width: 1200px) {
+  .show-directions {
+    padding-bottom: 8%;
+  }
+  
+  #gif-wheel-true {
+    margin-top: 9%;
+    margin-bottom: 12%;
+  }
+
+  #gif-wheel-false {
+    margin-top: 9%;
+    margin-bottom: 12%;
+  }
+  .random-result {
+    margin-bottom: -40.5%;
+    margin-top: -12%;
+  }
+}
+
 @keyframes spin {
   from {
       transform-origin: center center;
@@ -347,8 +367,6 @@ a{
       transform: rotate(3600deg);
     }
 }
-
-
 
 @keyframes bounce {
   0% {
