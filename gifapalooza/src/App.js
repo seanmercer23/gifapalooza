@@ -6,7 +6,6 @@ import Main from './Main'
 import Search from './Search'
 import Random from './Random'
 import SpinSound from './spin_sound.m4a'
-import BeOurGuest from './be_our_guest.mp3'
 
 const apiKey = process.env.REACT_APP_API_KEY
 const randomWords = require('random-words')
@@ -106,11 +105,6 @@ class App extends Component {
     .then(json => this.setState({gifs: json.results, next: json.next}))
   }
 
-  beOurGuest () {
-    const guest = document.querySelector('.guest')
-    guest.play()
-  }
-
   render() {
     return (
       <BrowserRouter>
@@ -119,16 +113,11 @@ class App extends Component {
             exact path="/"
             component={Home}
               />
-              
+
           <Route 
             exact path="/main" 
-            render={(props) =>
-            <Main 
-              {...props}
-              beOurGuest={this.beOurGuest}
+            component={Main}
             />
-            }  
-          /> 
 
           <Route 
             exact path="/search"
@@ -161,14 +150,6 @@ class App extends Component {
                 />
               }
             />
-            <audio style={{display: "none"}}
-             className="spin-sound"
-             src={SpinSound}
-             ></audio>
-             <audio className="guest" 
-             style={{display: "none"}} 
-             src={BeOurGuest} 
-             loop="loop"></audio>
         </div>
       </BrowserRouter>
     );

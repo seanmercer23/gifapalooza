@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 function Main (props) {
     return (
-        <div className="main" onMouseEnter={props.beOurGuest}>
+        <div className="main">
             <h1 className="row0">Welcome to Gifapalooza</h1>
             <nav>
                     <div className="row1"><h2><Link to="/search">Gif Search</Link></h2></div>
