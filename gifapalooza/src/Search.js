@@ -26,12 +26,8 @@ function Search (props) {
             <div className="gifs">
                 {props.renderGifs()}
             </div>
-            <button className={props.searchDisplay ? "hide" : "next-button"} onClick={props.nextResults}>Next</button>
+            <div className="next"><button className={props.searchDisplay ? "hide" : "next-button"} onClick={props.nextResults}>Next</button></div>
             <Footer />
-            <img 
-                src="https://media1.tenor.com/images/9debdd22dd9e43074b7efe9f3a59c570/tenor.gif" 
-                className={props.searchDisplay ? "shame" : "hide"} 
-            />
         </div>
     )
 }
