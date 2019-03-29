@@ -31,6 +31,12 @@ The way it works is by first checking if the results returned from the fetch cal
 * Alternatively users can navigate to the random gif page and spin the **Wheel of Gifs** to get a random gif
 
 ---
+
+Deployed app can be found here:
+[https://sm-gifapalooz.herokuapp.com/](https://sm-gifapalooz.herokuapp.com/)
+
+---
+
 ## Credits
 Gifs provided by the Tenor Gif API using the Search and Random Endpoints more documentation can be found at the link below
 [https://tenor.com/gifapi/documentation](https://tenor.com/gifapi/documentation)
