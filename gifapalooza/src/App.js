@@ -150,6 +150,11 @@ class App extends Component {
                 />
               }
             />
+            <audio
+              className="spin-sound"
+              src={SpinSound}
+              style={{display: "none"}}
+            ></audio>
         </div>
       </BrowserRouter>
     );
