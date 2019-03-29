@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css?family=Concert+One');
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
+body {
+  background: #f857a6;
+}
+
+.App {
+  display: grid;
+  grid-template-rows: 0.5fr 1fr 0.25fr;
+  height: 600px;
+  margin: 0;
+}
+
+.App-no-gifs {
+  display: grid;
+  height: 150px;
+  grid-template-rows: 0.5fr 1fr 0.25fr;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 5px;
+}
+
+a{
+  text-decoration: none;
+}
+.header {
+  grid-row: 1;
+  margin: 0;
+  text-align: center;
+  width: 100%;
+  padding-top: 1%; 
+  background: #50C9C3; 
+  background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+  background: linear-gradient(to right, #96DEDA, #50C9C3); 
+}
+
+.footer {
+  grid-row: 3;
+  font-size: 10px;
+  padding-top: 10px;
+  width: 100%;
+  padding-bottom: 1%;
+  background: #50C9C3; 
+  background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+  background: linear-gradient(to right, #96DEDA, #50C9C3);
+  color: #f857a6;
+  font-family: 'Concert One', cursive;
+  text-decoration: none;
+  text-align: center;
+}
+
+.github, .tenor {
+  color: #f857a6;
+}
+
+.github:hover {
+  text-decoration: underline;
+}
+
+.tenor:hover{
+  text-decoration: underline;
+}
+
+.search-with-gifs {
+  margin: 0 auto;
+  width: 100%;
+  background: #f857a6;
+}
+
+.search-no-gifs {
+  margin: 0 auto;
+  height: 50px;
+  width: 100%;
+  background: #f857a6;
+}
+
+.gifs {
+  grid-row: 2;
+  align-items: center;
+  margin: 0 auto;
+  padding-left: 3.1%;
+}
+
+.search-result {
+  margin: 0 auto;
+  height: 400px;
+  width: 400px;
+}
+
+.random-result {
+  height: 400px;
+  width: 400px;
+  margin-left: 55%;
+  margin-bottom: -34.5%;
+  margin-top: -2%;
+}
+
+.hide-random-result {
+  display: none;
+}
+
+.random-no-search {
+  height: 30%;
+  width: 100%;
+}
+
+.random-yes-search {
+  height: 30%;
+  width: 100%;
+}
+
+.gif-search {
+  height: 50px;
+  width: 200px;
+  margin: 0 auto;
+  align-items: center;
+  padding-bottom: 3%;
+}
+
+.search-form {
+  margin: 0 auto;
+  align-self: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 300px;
+}
+
+#gif-wheel-true {
+  width: 400px;
+  height: 400px;
+  margin-left: 5%;
+  margin-top: 3%;
+  margin-bottom: 4%;
+  grid-row: 2;
+  background: #03001e;
+  background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
+  background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
+  border-radius: 100%;
+}
+
+#gif-wheel-false {
+  width: 400px;
+  height: 400px;
+  margin-left: 5%;
+  margin-top: 3%;
+  margin-bottom: 4%;
+  grid-row: 2;
+  background: #03001e;
+  background: -webkit-linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
+  background: linear-gradient(to right, #fdeff9, #ec38bc, #7303c0, #03001e);
+  border-radius: 100%;
+}
+
+.spin {
+  animation: spin 7s ease-out;
+  transform-origin: center center;
+}
+
+.random-gif {
+  grid-row: 2;
+  height: 60%;
+  width: 60%;
+  margin-left: 85%;
+  margin-top: -1%;
+}
+
+.wheel-instructions {
+  color: white;
+  margin: 0 auto;
+  padding-top: 200px;
+  text-align: center;
+}
+
+.header-nav {
+  padding-bottom: 10px;
+}
+
+.nav-link {
+  color: #f857a6;
+  font-family: 'Concert One', cursive;
+  font-size: 2em;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.show-directions {
+  font-size: 2em;
+  font-family: 'Abril Fatface', cursive;
+  color: #50C9C3;
+  height: 430px;
+  width: 100%;
+  padding-top: 2.5%;
+  padding-bottom: 3.5%;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}
+
+.search-bar {
+  border-radius: 25%;
+  height: 60px;
+  width: 150px;
+  font-size: 10px;
+  margin-bottom: 10%;
+  background: #50C9C3; 
+  background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+  background: linear-gradient(to right, #96DEDA, #50C9C3);
+  color: #f857a6;
+  border: #50C9C3;
+  text-align: center;
+  font-family: 'Abril Fatface', cursive;
+  font-size: 1.5em;
+  margin-right: 5%;
+}
+
+.submit {
+  border-radius: 100%;
+  height: 75px;
+  width: 75px;
+  font-size: 1em;
+  background: #50C9C3; 
+  background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+  background: linear-gradient(to right, #96DEDA, #50C9C3);
+  color: #f857a6;
+  border: #50C9C3;
+  font-family: 'Abril Fatface', cursive;
+  margin-bottom: 18%;
+}
+
+.point-gif {
+  margin-bottom: -2%;
+}
+
+.search-direction {
+  margin-bottom: -10px;
+}
+
+.next {
+  height: 10%;
+  width: 10%;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.next-button {
+  border-radius: 100%;
+  height: 75px;
+  width: 75px;
+  font-size: 1em;
+  background: #50C9C3; 
+  background: -webkit-linear-gradient(to right, #96DEDA, #50C9C3);
+  background: linear-gradient(to right, #96DEDA, #50C9C3);
+  color: #f857a6;
+  border: #50C9C3;
+  font-family: 'Abril Fatface', cursive;
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+
+.wheel-instructions {
+  font-family: 'Abril Fatface', cursive;
+  font-size: 40px;
+  padding-top: -20%;
+}
+
+.home {
+  margin: 0, auto;
+  text-align: center;
+  padding-top: 25%;
+  padding-right: 5px;
+}
+
+.home-nav {
+  margin-top: -19%;
+  margin-left: -2%;
+}
+
+.enter-link {
+  margin: 0 auto;
+  width: 50%;
+  padding-top: -85%;
+  padding-bottom: 5%;
+  animation: bounce 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+}
+
+.enter {
+  text-align: center;
+  font-family: 'Concert One', cursive;
+  font-size: 20em;
+  color:#50C9C3;
+}
+
+.enter:hover {
+  text-decoration: underline;
+}
+
+.main {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Concert One', cursive;
+  color: #50C9C3;
+  font-size: 2.5em;
+}
+
+.row0 {
+  animation: bounce 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+}
+
+.row1 {
+  animation: bounce 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+}
+
+.row1:hover {
+  text-decoration: underline;
+}
+
+.row2 {
+  animation: bounce 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+}
+
+.row3 {
+  animation: bounce 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+}
+
+.row3:hover {
+  text-decoration: underline;
+}
+
+.row4 {
+  animation: bounce 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) infinite alternate-reverse both;
+}
+
+@media (min-width: 1280px) {
+  .show-directions {
+    padding-bottom: 8%;
+  }
+  
+  #gif-wheel-true {
+    margin-top: 9%;
+    margin-bottom: 12%;
+  }
+
+  #gif-wheel-false {
+    margin-top: 9%;
+    margin-bottom: 12%;
+  }
+  .random-result {
+    margin-bottom: -40.5%;
+    margin-top: -12%;
+  }
+}
+
+@keyframes spin {
+  from {
+      transform-origin: center center;
+      transform: rotate(0deg);
+  }
+  to {
+      transform: rotate(3600deg);
+    }
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-75px);
+  }
+}
